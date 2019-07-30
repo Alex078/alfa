@@ -1,0 +1,15 @@
+{% extends 'base_template.html' %}
+{% load account %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block body %}
+    profile {% user_display user %}
+    <a href="{% url 'socialaccount_connections' %}">Social Accounts</a>
+    <a href="{% url 'accounts:balance_history' %}">Balance History</a>
+    <a href="{% url 'accounts:user_bets' %}">My Bets</a>
+    <a href="{% url 'accounts:user_update' %}">Settings</a>
+    <a href="{% url 'account_logout' %}">Logout</a>
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block title %}Alfakasta{% endblock %}
+
+{% block head %}
+    <style>
+        .bets {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'pages:home_matches' %}">All</a>
+    {% for g in games %}
+        <a href="{% url 'pages:home_matches_per_game' game=g %}">{{ g }}</a>
+    {% endfor %}
+    <br>
+
+    <a href="{% url 'pages:home_active_bets' %}">Active Bets</a>
+
+    <div id="results"></div>
+    <form id="betForm" method="post">{% csrf_token %}
+        {{ bet_form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+
+    <ul>
+        {% for match in matches %}
+            <li class="match" data-match-id="{{ match.id }}">
+                {{ match.begin_at }} -
+                <span class="team1" style="background-color: aquamarine" data-team-id="{{ match.opponent1.id }}"
+                      data-match-id="{{ match.id }}">
+                    {{ match.opponent1.name }}</span> VS
+                <span class="team2" style="background-color: aquamarine" data-team-id="{{ match.opponent2.id }}"
+                      data-match-id="{{ match.id }}">
+                    {{ match.opponent2.name }}</span>
+                - {{ match.get_videogame_display }}
+                {% if match.open_bets %}
+                    <button class="showBetsBtn" data-match-id="{{ match.id }}">{{ match.open_bets|length }} BETS
+                    </button>
+                {% else %}
+                    <button class="showBetsBtn" data-match-id="{{ match.id }}">Waiting for players</button>
+                {% endif %}
+                <ul class="bets" data-match-id="{{ match.id }}">
+                    {% for bet in match.open_bets %}
+                        <li class="bet" data-bet-id="{{ bet.id }}">
+                            {{ bet }}
+                            {% if user.is_authenticated and bet.user == user and bet.status == 0 %}
+                                <form class="cancelBetForm" method="post" action="{% url 'bets:cancel' bet_id=bet.id %}"
+                                      data-bet-id="{{ bet.id }}">{% csrf_token %}
+                                    <button class="cancelBetBtn" data-bet-id="{{ bet.id }}" type="submit">Cancel bet
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            let createBetUrl = "{% url 'bets:create' %}";
+            let getBetsPerMatchUrl = "{% url 'bets:bets_per_match' match_id=1 %}";
+
+            let betForm = $('#betForm');
+
+            function updateBetsPerMatch(matchID) {
+                let url = getBetsPerMatchUrl.replace(/1/, matchID.toString());
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function (json) {
+                        let visibleBetIDs = [];
+                        $('.bets li').each(function () {
+                            visibleBetIDs.push(parseInt($(this).attr('data-bet-id')));
+                        });
+
+                        for (let bet of json) {
+                            if (!visibleBetIDs.includes(bet.id)) {
+                                $(`.bets[data-match-id="${matchID}"]`).append(
+                                    `<li class="bet" data-bet-id="${bet.id}">${bet.id} by ${bet.user}</li>`
+                                );
+                            }
+                        }
+                    },
+                    error: function (xhr, errmsg, err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + err +
+                            " <a href='#' class='close'>&times;</a></div>");
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+            }
+
+            $('.team1, .team2').click(function () {
+                $('#id_winner').val($(this).attr('data-team-id'));
+                $('#id_match').val(($(this).attr('data-match-id')));
+            });
+
+            $('.showBetsBtn').click(function () {
+                $(this).next('.bets').toggle();
+            });
+
+            betForm.submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: createBetUrl,
+                    type: "POST",
+                    data: betForm.serialize(),
+                    success: function (json) {
+                        $('#results').html("<div class='alert-box alert radius'>Success!" +
+                            "<a href='#' class='close'>&times;</a></div>");
+                        updateBetsPerMatch($('#id_match').val());
+                    },
+                    error: function (xhr, errmsg, err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + err +
+                            " <a href='#' class='close'>&times;</a></div>");
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+                return false;
+            });
+
+        });
+    </script>
+{% endblock %}

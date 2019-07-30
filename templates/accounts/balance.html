@@ -1,0 +1,20 @@
+{% extends 'base_template.html' %}
+{% load account %}
+
+{% block title %}
+    Balance
+{% endblock %}
+
+{% block body %}
+    Balance
+    {{ user.balance_usd }}$
+    {{ user.balance_eur }}€
+    {{ user.balance_bonus }}$+
+
+    <ul>
+        {% for action in balance_actions %}
+            <li>{{ action.amount }}{{ action.currency }} - {{ action.get_action_display }}
+                - {{ action.created_at }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+MENU
+
+<a href="{% url 'pages:home_matches' %}">Alfakasta</a>
+
+{% if user.is_authenticated %}
+    {{ user.balance_usd }}$
+    {{ user.balance_eur }}€
+    {{ user.balance_bonus }}$+
+
+    <a href="{% url 'accounts:profile' %}">Profile</a>
+    <a href="{% url 'account_logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'account_login' %}">Login</a>
+    <a href="{% url 'account_signup' %}">SignUp</a>
+{% endif %}
+<a href="{% url 'partners:apply' %}">Partners</a>
+<form method="post" action="{% url 'accounts:timezone' %}">
+    {% csrf_token %}
+{{ timezone_form }}
+    <button type="submit">Save</button>
+</form>

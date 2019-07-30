@@ -1,0 +1,64 @@
+.button {
+  display: block;
+  text-align: center;
+  color: $white;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &_sm {
+    height: 36px;
+    padding: 9px 13px;
+  }
+
+  &_md {
+    height: 50px;
+    padding: 13px 10px;
+    max-width: 253px;
+  }
+
+  &_contact-form {
+    font-size: 18px;
+    line-height: 23px;
+    background-color: $navyLight;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &_login {
+    background: #32325D;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    max-width: 80px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-right: 14px;
+
+    @media (max-width: 370px) {
+      font-size: 12px;
+      max-width: 70px;
+      margin-right: 8px;
+    }
+  }
+
+  &_registr {
+    max-width: 130px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #825CF7 0%, #7348FA 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+    @media (max-width: 370px) {
+      font-size: 12px;
+      max-width: 120px;
+    }
+  }
+}

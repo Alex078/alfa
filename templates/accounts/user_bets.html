@@ -1,0 +1,24 @@
+{% extends 'base_template.html' %}
+{% load account %}
+
+{% block title %}
+    My Bets
+{% endblock %}
+
+{% block body %}
+    My Bets
+    <ul>
+        {% for bet in bets %}
+            <li>
+                {{ bet.match.begin_at }} - {{ bet.match.get_videogame_display }} -
+                {{ bet.match.opponent1.name }} VS {{ bet.match.opponent2.name }}
+                - {{ bet.amount }} {{ bet.currency }} - by {{ bet.user }}
+                {% if bet.is_cancellable %}
+                    <button class="cancelBetBtn" data-bet-id="{{ bet.id }}">Cancel</button>
+                {% endif %}
+            </li>
+        {% empty %}
+            you didn't make any bets yet
+        {% endfor %}
+    </ul>
+{% endblock %}

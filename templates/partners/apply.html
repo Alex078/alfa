@@ -1,0 +1,15 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+    Partners
+{% endblock %}
+
+{% block body %}
+    how to become a partner
+    <br>
+    application form
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Apply">
+    </form>
+{% endblock %}

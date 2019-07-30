@@ -1,0 +1,32 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block title %}Alfakasta{% endblock %}
+
+{% block body %}
+    <a href="{% url 'pages:home_active_bets' %}">All</a>
+    {% for g in games %}
+        <a href="{% url 'pages:home_active_bets_per_game' game=g %}">{{ g }}</a>
+    {% endfor %}
+    <br>
+
+    <a href="{% url 'pages:home_matches' %}">Matches</a>
+    <form id="betForm" method="post">{% csrf_token %}
+        {{ bet_form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+
+    <ul>
+        {% for bet in bets %}
+            <li>
+                {{ bet.match.begin_at }} - {{ bet.match.get_videogame_display }} -
+                {{ bet.match.opponent1.name }} VS {{ bet.match.opponent2.name }}
+                - {{ bet.amount }} {{ bet.currency }} - by {{ bet.user }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+{% endblock %}
