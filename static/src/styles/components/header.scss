@@ -6,6 +6,11 @@
   width: 100%;
   z-index: 100;
 
+  &.not-fixed {
+    position: relative;
+    margin-bottom: -60px;
+  }
+
   &__humb {
     display: block;
     width: 30px;
