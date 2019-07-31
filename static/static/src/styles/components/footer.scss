@@ -1,0 +1,171 @@
+.footer {
+  background-color: $navyDark;
+
+  &__top-content {
+    position: relative;
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    @include from-sm {
+      border-bottom: 1px solid #181627;
+    }
+
+    @include to-sm {
+      margin-right: -16px;
+    }
+  }
+
+  &__partners-left {
+    display: flex;
+    align-items: center;
+
+    @include to-sm {
+      white-space: nowrap;
+      overflow-x: auto;
+      padding-right: 0;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    @include from-sm {
+      padding-right: 40px;
+    }
+  }
+
+  &__partners-right {
+    display: flex;
+    align-items: center;
+
+    @include to-sm {
+      position: absolute;
+      top: calc(100% + 14px);
+      right: 16px;
+    }
+  }
+
+  &__partners-item {
+    &:not(:first-child) {
+      margin-left: 40px;
+
+      @include from-md {
+        margin-left: 45px;
+      }
+    }
+  }
+
+  &__partners-img {
+    max-width: 110px;
+  }
+
+  &__bottom-content {
+    padding: 30px 0 0;
+    display: flex;
+
+    @include from-sm {
+      padding: 48px 0 0;
+    }
+
+    @include to-md {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu {
+    margin-bottom: 32px;
+
+    @include from-md {
+      width: 100%;
+    }
+
+    @include to-sm {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      padding-right: 30px;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.875px;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 16px;
+    }
+
+    &-list {
+
+    }
+
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 14px;
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      font-size: 16px;
+      line-height: 20px;
+      color: $gray;
+      opacity: 0.6;
+      text-decoration-line: none;
+
+      &:hover {
+        opacity: 1;
+        transition: all 0.25s;
+      }
+    }
+
+    &-contact-icon {
+      margin: 16px 0 0;
+
+      &-item {
+        &:not(:last-child) {
+          margin-right: 16px;
+        }
+      }
+
+      &-img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &-social {
+      display: flex;
+
+      &-link {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        background-color: $navyGray;
+        color: $gray;
+
+        &:not(:last-child) {
+          margin-right: 24px;
+        }
+
+        &:hover {
+          color: $white;
+          transition: all 0.25s;
+        }
+      }
+
+      &-icon {
+
+      }
+    }
+  }
+}

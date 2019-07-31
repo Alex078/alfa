@@ -1,0 +1,15 @@
+@import "~intl-tel-input/build/css/intlTelInput.css";
+
+//base styles
+@import "base/index";
+
+//pages
+@import "pages/contacts";
+@import "pages/partners";
+@import "pages/support";
+
+//components
+@import "components/contact-form";
+@import "components/contact-card";
+@import "components/footer";
+@import "components/header";

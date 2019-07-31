@@ -1,0 +1,74 @@
+@import "buttons";
+@import "fonts";
+
+main {
+  padding-top: 60px;
+}
+html, body {
+  font-family: $mainFont;
+  line-height: normal;
+  font-weight: normal;
+  font-style: normal;
+  color: $blueDark;
+}
+body.overlay {
+  position: fixed;
+  width: 100%;
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(11, 9, 34, 0.4);
+  }
+
+  section {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='blur'><feGaussianBlur stdDeviation='3'/></filter></svg>#blur");
+  }
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin: 6px 0;
+
+  tr {
+    td {
+      padding: 6px 10px;
+      border: 1px solid #C4C4C4;
+      text-align: center;
+    }
+  }
+}
+.container {
+  width: 100%;
+  padding: 0 16px;
+  max-width: 1188px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.iti {
+  display: block;
+  margin-bottom: 8px;
+
+  &__flag-container {
+    padding: 0;
+  }
+
+  & &__selected-flag {
+    padding-right: 10px;
+    background-color: #282740;
+    color: $white;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  & &__arrow {
+    border-top-color: $white;
+  }
+}
+

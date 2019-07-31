@@ -1,0 +1,301 @@
+.support {
+  &-head {
+    padding: 56px 0 48px;
+    background-color: $blue;
+
+    @include from-sm {
+      padding: 56px 0 80px;
+    }
+
+    &__box {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      color: $white;
+      background-size: 0;
+
+      @include from-sm {
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: 130px;
+      }
+    }
+
+    &__title {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 45px;
+      letter-spacing: -0.9px;
+      margin-bottom: 16px;
+
+      @include from-sm {
+        font-size: 60px;
+        line-height: 75px;
+        margin-bottom: 24px;
+      }
+    }
+
+    &__search {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 12px;
+
+      @include from-sm {
+        margin: 0 auto 16px;
+      }
+
+      &-icon {
+        position: absolute;
+        left: 22px;
+        top: 20px;
+        width: 15px;
+      }
+
+      &-input {
+        background-color: $white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        height: 56px;
+        width: 100%;
+        display: block;
+        padding: 16px 20px 16px 58px;
+      }
+    }
+
+    &__last-request {
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 18px;
+      color: $white;
+
+      @include to-sm {
+        text-align: left;
+      }
+
+      &-title {
+        font-weight: bold;
+        padding-right: 5px;
+      }
+
+      &-link {
+        text-decoration-line: underline;
+      }
+    }
+  }
+  &-questions {
+    padding: 56px 0;
+
+    @include to-sm {
+      padding-top: 0;
+    }
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+
+      @include from-sm {
+        flex-direction: row;
+      }
+    }
+
+    &__nav {
+      width: 100%;
+
+      @include to-sm {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        height: 60px;
+      }
+
+      &-box {
+        @include to-sm {
+          display: flex;
+          white-space: nowrap;
+          overflow-x: auto;
+          margin: 0 -16px;
+          height: 100%;
+          background-color: $white;
+        }
+
+        @include from-sm {
+          position: sticky;
+          top: 20px;
+          transition: all 0.2s;
+
+          &.top-padding {
+            padding-top: 75px;
+            transition: all 0.2s;
+          }
+        }
+      }
+
+      &-head {
+        display: block;
+        font-size: 16px;
+        line-height: 22px;
+
+        @include from-sm {
+          margin-bottom: 16px;
+        }
+
+        &.active {
+          color: $purple;
+          border-bottom: 2px solid $purple;
+          font-weight: bold;
+
+          @include from-sm {
+            font-size: 18px;
+            line-height: 25px;
+            color: $blueDark;
+            border: none;
+          }
+        }
+
+        @include to-sm {
+          padding: 16px 10px;
+          border-bottom: 1px solid #DADADA;
+          height: 100%;
+        }
+      }
+
+      &-about {
+        @include from-sm {
+          margin-bottom: 16px;
+        }
+
+        &-link {
+          display: none;
+
+          @include from-sm {
+            font-size: 16px;
+            line-height: 22px;
+            color: $gray;
+            margin-bottom: 8px;
+            display: block;
+            padding-left: 8px;
+            border-left: 3px solid transparent;
+
+            &.active {
+              font-weight: bold;
+              color: $purple;
+              border-left: 3px solid $purple;
+            }
+          }
+        }
+      }
+
+      @include from-sm {
+        max-width: 300px;
+        margin-right: 45px;
+      }
+    }
+
+    &__content {
+      width: 100%;
+
+      @include to-sm {
+        padding-top: 32px;
+      }
+    }
+
+    &__item {
+      &:not(:last-child) {
+        padding-bottom: 32px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      &-title {
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 33px;
+        margin-bottom: 8px;
+
+        @include from-sm {
+          font-size: 32px;
+          line-height: 40px;
+          margin-bottom: 14px;
+        }
+      }
+
+      &-descr {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    &__callback {
+      &-wrap {
+        display: none;
+
+        @include from-sm {
+          display: block;
+          min-height: 68px;
+        }
+      }
+
+      @include from-sm {
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.2s;
+
+        &-img {
+          display: none;
+        }
+
+        &-box {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+
+        &-title {
+          font-size: 16px;
+          line-height: 20px;
+          color: $gray;
+          margin-right: 38px;
+          white-space: nowrap;
+        }
+
+        &-btn {
+          max-width: 170px;
+          height: 43px;
+          color: $purple;
+          border: 2px solid $purple;
+          background-color: transparent;
+        }
+      }
+    }
+
+    &__callback.fixed {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      width: 100%;
+      padding: 0 16px;
+      max-width: 1188px;
+      margin: 0 auto;
+      background-color: $white;
+      z-index: 200;
+      height: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.2s;
+
+      .support-questions__callback-img {
+        display: block;
+      }
+
+      .support-questions__callback-box {
+        width: 60%;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
