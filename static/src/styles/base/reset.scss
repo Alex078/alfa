@@ -50,6 +50,7 @@ table {
 
 button {
   border: none;
+  font: inherit;
 
   &:focus{
     outline: none;

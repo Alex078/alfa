@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'SourceSansPro';
-  src: url('/../../../dist/fonts/SourceSansPro-Bold.ttf');
-  src: url('/../../../dist/fonts/SourceSansPro-Bold.ttf') format('truetype');
+  src: url(../../../dist/fonts/SourceSansPro-Regular.ttf);
+  src: url(../../../dist/fonts/SourceSansPro-Regular.ttf) format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SourceSansPro';
-  src: url('/../../../dist/fonts/SourceSansPro-Regular.ttf');
-  src: url('/../../../dist/fonts/SourceSansPro-Regular.ttf') format('truetype');
-  font-weight: 600;
+  src: url(../../../dist/fonts/SourceSansPro-SemiBold.ttf);
+  src: url(../../../dist/fonts/SourceSansPro-Semibold.ttf) format('truetype');
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SourceSansPro';
-  src: url('/../../../dist/fonts/SourceSansPro-SemiBold.ttf');
-  src: url('/../../../dist/fonts/SourceSansPro-Semibold.ttf') format('truetype');
-  font-weight: 700;
+  src: url(../../../dist/fonts/SourceSansPro-Bold.ttf);
+  src: url(../../../dist/fonts/SourceSansPro-Bold.ttf) format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
 
