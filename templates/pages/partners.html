@@ -14,7 +14,7 @@
         .iti__flag {background-image: url("../../static/dist/images/flags.png");}
     </style>
 </head>
-<body>
+<body class="">
 <header class="header auth">
     <div class="container">
         <div class="header__box">
@@ -128,7 +128,7 @@
             <div class="partners-head__box">
                 <h1 class="partners-head__title">Начни зарабатывать с Alfakasta</h1>
                 <div class="partners-head__descr">Привлекаяй игроков в Alfakasta и получай до 20% дохода</div>
-                <button class="button button_md partners-head__btn">СТАТЬ ПАРТНЕРОМ</button>
+                <a href="#form-partners-id" class="button button_md partners-head__btn js-ancor-link">СТАТЬ ПАРТНЕРОМ</a>
             </div>
         </div>
     </section>
@@ -214,12 +214,12 @@
                 </div>
                 <div class="partners-faq__callback">
                     <div class="partners-faq__callback-title">Остались вопросы?</div>
-                    <button class="button partners-faq__callback-btn">Написать нам</button>
+                    <button class="button partners-faq__callback-btn js-callback-popup-open">Написать нам</button>
                 </div>
             </div>
         </div>
     </section>
-    <section class="partners-form">
+    <section class="partners-form" id="form-partners-id">
         <div class="container">
             <div class="partners-form__box">
                 <h2 class="partners-form__title">Заполни анкету партнера</h2>
@@ -233,7 +233,7 @@
                 </form>
                 <div class="partners-form__contact-card">
                     <div class="contact-card gray">
-                        <a href="#" class="contact-card__link">
+                        <a href="#" class="contact-card__link js-callback-popup-open">
                             <img src="https://s3.eu-central-1.amazonaws.com/bookimed/doctor/5acf60db7db8b_b.jpeg" alt="" class="contact-card__img">
                             <span class="contact-card__link-txt">Написать</span>
                         </a>
@@ -380,6 +380,18 @@
         </div>
     </div>
 </footer>
+
+<div class="callback-popup js-callback-popup">
+    <div class="callback-popup__box">
+        <div class="callback-popup__close js-callback-popup-close"></div>
+        <form class="contact-form">
+            <input type="text" class="contact-form__input" placeholder="Ваше имя">
+            <input type="text" class="contact-form__input" placeholder="Электронная почта">
+            <textarea class="contact-form__textarea" placeholder="Задайте свой вопрос"></textarea>
+            <button class="button button_md button_contact-form">Отправить обращение</button>
+        </form>
+    </div>
+</div>
 
 </body>
 <script src="../../static/dist/js/main.js"></script>

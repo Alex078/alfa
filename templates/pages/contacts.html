@@ -134,7 +134,7 @@
             <a href="mailto:support@alfakasta.com" class="contacts__email-link">support@alfakasta.com</a>
             <div class="contacts__contact-card">
                 <div class="contact-card">
-                    <a href="#" class="contact-card__link">
+                    <a href="#" class="contact-card__link js-callback-popup-open">
                         <img src="https://s3.eu-central-1.amazonaws.com/bookimed/doctor/5acf60db7db8b_b.jpeg" alt="" class="contact-card__img">
                         <span class="contact-card__link-txt">Написать</span>
                     </a>
@@ -279,6 +279,18 @@
         </div>
     </div>
 </footer>
+
+<div class="callback-popup js-callback-popup">
+    <div class="callback-popup__box">
+        <div class="callback-popup__close js-callback-popup-close"></div>
+        <form class="contact-form">
+            <input type="text" class="contact-form__input" placeholder="Ваше имя">
+            <input type="text" class="contact-form__input" placeholder="Электронная почта">
+            <textarea class="contact-form__textarea" placeholder="Задайте свой вопрос"></textarea>
+            <button class="button button_md button_contact-form">Отправить обращение</button>
+        </form>
+    </div>
+</div>
 
 </body>
 <script src="../../static/dist/js/main.js"></script>

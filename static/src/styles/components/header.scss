@@ -73,7 +73,7 @@
   &__mob-menu-close {
     position: absolute;
     right: 18px;
-    top: 10px;
+    top: 15px;
     cursor: pointer;
     color: $gray;
     font-size: 14px;
@@ -107,7 +107,7 @@
         top: 0;
         z-index: 10;
         height: 100vh;
-        padding: 18px;
+        padding: 24px 18px;
         visibility: hidden;
         transition: ease-in-out 0.4s;
       }
@@ -120,7 +120,7 @@
     }
 
     &-left.open {
-      left: -16px;
+      left: -18px;
       visibility: visible;
       transition: all 0.3s;
     }
