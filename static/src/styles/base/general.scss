@@ -10,6 +10,7 @@ html, body {
   font-weight: normal;
   font-style: normal;
   color: $blueDark;
+  -webkit-font-smoothing: antialiased;
 }
 body.overlay {
   position: fixed;
@@ -73,6 +74,11 @@ body.overlay {
 
   &__flag-container {
     padding: 0;
+    background-color: #282740;
+
+    &:hover {
+      background-color: $navy;
+    }
   }
 
   & &__selected-flag {
@@ -86,6 +92,17 @@ body.overlay {
 
   & &__arrow {
     border-top-color: $white;
+  }
+
+  &.iti--allow-dropdown.iti--separate-dial-code {
+    .contact-form__input {
+      margin-left: 10px;
+      max-width: calc(100% - 10px);
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }
 

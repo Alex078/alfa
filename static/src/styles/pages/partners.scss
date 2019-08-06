@@ -38,16 +38,18 @@
     }
 
     &__btn {
-      max-width: 230px;
+      max-width: 226px;
       margin: 0 auto;
       background: $navyLight;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       font-size: 17px;
       line-height: 23px;
       letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
   &-how {
+    background-color: $grayLighter;
     color: $blueDark;
     padding: 48px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -136,6 +138,7 @@
     }
   }
   &-faq {
+    background-color: $grayLighter;
     padding: 48px 0;
 
     @include from-sm {
@@ -157,6 +160,8 @@
 
       @include from-sm {
         margin-bottom: 56px;
+        font-size: 60px;
+        line-height: 75px;
       }
     }
 

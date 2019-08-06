@@ -7,6 +7,10 @@
 
   &.gray {
     color: $gray;
+
+    .contact-card__img {
+      background-color: #541eb8;
+    }
   }
 
   &__link {
@@ -54,6 +58,7 @@
     object-position: center;
     border-radius: 50%;
     display: block;
+    background-color: #334691;
   }
 
   &__position {

@@ -168,4 +168,13 @@
       }
     }
   }
+
+  &__add-info {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    color: $gray;
+    padding: 0 0 20px;
+    opacity: 0.6;
+  }
 }

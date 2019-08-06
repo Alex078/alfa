@@ -6,6 +6,10 @@
   max-width: 500px;
   margin: 0 auto;
 
+  @include from-sm {
+    padding: 32px;
+  }
+
   &__input {
     margin-bottom: 8px;
     background-color: $navy;
@@ -17,6 +21,15 @@
     border-radius: 4px;
     padding: 15px 18px;
     width: 100%;
+
+    &::placeholder {
+      color: $gray;
+      opacity: 1;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 19px;
+      font-family: inherit;
+    }
   }
 
   &__textarea {
@@ -28,5 +41,14 @@
     padding: 15px 16px;
     color: $gray;
     margin-bottom: 32px;
+
+    &::placeholder {
+      color: $gray;
+      opacity: 1;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 19px;
+      font-family: inherit;
+    }
   }
 }
